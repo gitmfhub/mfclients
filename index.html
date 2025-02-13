@@ -2,10 +2,32 @@
 <html>
 <head>
     <title>داتا عملاء</title>
-    <script src='./js/data.js'></script>
 </head>
 <body>
- <div id="canvas">..يتم تحميل البيانات</div>
-<script src='./js/control.js'></script>
+    <button id='btn'>view</button>
+    <script>
+        // Fetch the JSON file
+getData();
+function getData(){
+ fetch('./json/data.json').then(response => {
+  if (!response.ok) {
+   throw new Error('Network response was not ok ' + response.statusText);
+  }
+  return response.json();
+ })
+ .then(data => {
+  data.clientsArr.forEach(client => {
+   clients.push(client);
+   if(client.month==selectedMonth){
+    if(client.day==selectedDay){
+     
+    }
+   }
+  });
+ }).catch(error => {
+  console.error('There has been a problem with your fetch operation:', error);
+ });
+}
+    </script>
 </body>
 </html>
